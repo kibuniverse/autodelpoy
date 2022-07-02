@@ -1,0 +1,2 @@
+installDep: pnpm i
+build: pnpm build
