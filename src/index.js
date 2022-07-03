@@ -1,6 +1,7 @@
 import { execSync } from "child_process";
 import { existsSync, writeFileSync } from "fs";
 import { generateKey } from "./utils";
+import { hash } from "fnv-plus";
 import express from "express";
 const app = express();
 const userName = "kibuniverse";
@@ -9,7 +10,8 @@ const repoName = "test-autodeploy";
 const commitHash = "f95a7c3";
 
 const clonePath = `git@github.com:${userName}/${repoName}.git`;
-const key = generateKey({ userName, repoName, commitHash });
+const keyHash = hash(`${userName}${repoName}${commitHash}`);
+const key = keyHash.hex();
 
 if (!existsSync(repoName)) {
   execSync(`git clone ${clonePath}`);
