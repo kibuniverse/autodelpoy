@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "esbuild": "^0.14.45",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "fnv-plus": "^1.3.1"
   }
 }
