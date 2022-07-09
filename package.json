@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "ecu": "pnpm build && node out.js",
-    "build": "esbuild src/index.js --bundle --outfile=out.js --platform=node --target=node16.14 --minify-whitespace"
+    "build": "esbuild src/index.js --bundle --outfile=out.js --platform=node --target=node16.14 --minify-whitespace",
+    "build:redis": "esbuild src/redis-t.js --bundle --outfile=redis-t.js --platform=node --target=node16.14 --minify-whitespace && node redis-t.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,8 @@
   "dependencies": {
     "esbuild": "^0.14.45",
     "express": "^4.18.1",
-    "fnv-plus": "^1.3.1"
+    "express-ws": "^5.0.2",
+    "fnv-plus": "^1.3.1",
+    "redis": "^4.2.0"
   }
 }
